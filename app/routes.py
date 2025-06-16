@@ -13,3 +13,8 @@ def dashboard():
 def profile():
     return render_template('profile.html')
 @main.route('/settings')
+def settings():
+    return render_template('settings.html')
+@main.route('/help')
+def help_page():
+    return render_template('help.html')
