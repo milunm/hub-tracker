@@ -1,7 +1,7 @@
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from flask_login import LoginManager
-from .models import User  #
+
 
 
 
@@ -10,6 +10,7 @@ login_manager = LoginManager()
 
 @login_manager.user_loader
 def load_user(user_id):
+    from .models import User  # Import User model here to avoid circular import
     return User.query.get(int(user_id))
 
 def create_app():
